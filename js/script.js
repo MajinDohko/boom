@@ -8,9 +8,19 @@ const botonReiniciar = document.getElementById('restart');
 let numeroJugador = document.getElementById('userInput');
 console.log(numeroJugador);
 
+function imprimirCuentaAtras(){ 
+    let contadorSegundos = 5;
+    let cuentaAtras = setInterval(() => {
+        contador.innerHTML = `<p>Quedan ${contadorSegundos} segundos para que estalle la bomba</p>`
+        if (contadorSegundos == 0) {
+            clearInterval(cuentaAtras);
+        }
+        contadorSegundos--;
+    }, 1000);
+}
 function tiempoJuego () {
         setTimeout(() => {
-            let numeroOrdenador = Math.floor(Math.random()*3 + 1);
+            let numeroOrdenador = Math.floor(Math.random()*3)+1;
             let valorJugada = numeroJugador.value;
             if (valorJugada == numeroOrdenador) {
              resultado.innerHTML = `<h2 class="green">ENHORABUENA, HAS SALVADO EL MUNDO 👑</h2>
@@ -21,6 +31,7 @@ function tiempoJuego () {
         }, 6000);
     }
 
+
 botonReiniciar.addEventListener('click', ()=>{
     resultado.textContent = "";
     contador.textContent = ""; 
@@ -28,18 +39,6 @@ botonReiniciar.addEventListener('click', ()=>{
     imprimirCuentaAtras();
 })
 
-
-function imprimirCuentaAtras(){ 
-    let contadorIndex = 5;
-    let cuentaAtras = setInterval(() => {
-        contador.innerHTML = `<p>Quedan ${contadorIndex} segundos para que estalle la bomba</p>`
-        if (contadorIndex == 0) {
-            clearInterval(cuentaAtras);
-        }
-        contadorIndex--;
-
-    }, 1000);
-}
 
 numeroJugador.addEventListener('input', ()=>{
     imprimirCuentaAtras();
