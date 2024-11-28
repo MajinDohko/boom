@@ -42,6 +42,6 @@ function imprimirCuentaAtras(){
 }
 
 numeroJugador.addEventListener('input', ()=>{
-    tiempoJuego();
     imprimirCuentaAtras();
+    tiempoJuego();
 })
