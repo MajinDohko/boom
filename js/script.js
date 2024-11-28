@@ -34,9 +34,8 @@ function tiempoJuego () {
 
 botonReiniciar.addEventListener('click', ()=>{
     resultado.textContent = "";
-    contador.textContent = ""; 
-    tiempoJuego();
-    imprimirCuentaAtras();
+    contador.textContent = "";
+    numeroJugador.value = "";
 })
 
 
